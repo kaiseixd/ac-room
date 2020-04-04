@@ -16,6 +16,9 @@ const router = new Router()
 const server = http.createServer(app.callback())
 const io = socketIO(server)
 
+let userCount = 0
+let roomMap = {}
+
 n.prepare()
     .then(() => {
         router.get('/', async (ctx) => {
@@ -47,10 +50,11 @@ n.prepare()
 
         io.of('/room').on('connection', (socket) => {
             socket.on('login', (msg) => {
-                console.log(msg)
+                userCount++
+                console.log(userCount)
             })
             socket.on('disconnect', () => {
-                console.log('disconnect')
+                userCount--
             })
         })
 
