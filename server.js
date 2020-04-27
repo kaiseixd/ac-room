@@ -1,12 +1,20 @@
-import * as http from 'http'
-import * as crypto from 'crypto'
-import Koa from 'koa'
-import Router from 'koa-router'
-import socketIO from 'socket.io'
-import next from 'next'
-import 'isomorphic-fetch'
+// import * as http from 'http'
+// import * as crypto from 'crypto'
+// import Koa from 'koa'
+// import Router from 'koa-router'
+// import socketIO from 'socket.io'
+// import next from 'next'
+// import 'isomorphic-fetch'
 
-const port = process.env.PORT && parseInt(process.env.PORT, 10) || 3001
+const http = require('http')
+const crypto = require('crypto')
+const Koa = require('koa')
+const Router = require('koa-router')
+const socketIO = require('socket.io')
+const next = require('next')
+require('isomorphic-fetch')
+
+const port = process.env.PORT && parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
 
 const n = next({ dev })
